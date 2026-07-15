@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@layer base {
+  :root {
+    --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  * {
+    font-family: var(--font-primary);
+  }
+
+  
+
+  body {
+    font-family: var(--font-primary);
+    background: #f8fafc;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+
+  /* ROOT LAYOUT STRUCTURE */
+  .main-content-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Default sidebar compensation on desktop */
+    margin-left: 70px;
+  }
+
+  /* When sidebar is expanded/split view on desktop */
+  .main-content-container.with-sidebar {
+    margin-left: 280px;
+  }
+
+  /*
+    Pre-hydration class stamped by the blocking <script> in layout.tsx.
+    Applies before React loads so the margin is correct from frame 0.
+    Once React hydrates and adds .with-sidebar, this class becomes redundant
+    and can coexist harmlessly.
+  */
+  html.sidebar-initially-expanded .main-content-container {
+    margin-left: 280px;
+  }
+
+  .main-content {
+    flex: 1;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    /* Account for Top Header height (60px) */
+    padding-top: 60px;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Page Content Wrapper (Inner padding/centering) */
+  .page-transition-wrapper {
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* MOBILE LAYOUT ADJUSTMENTS */
+  @media (max-width: 768px) {
+    .main-content-container {
+      margin-left: 0 !important;
+    }
+
+    .main-content {
+      padding-top: 60px;
+      /* Still need header space */
+    }
+
+    .page-transition-wrapper {
+      padding: 1.5rem 1rem;
+    }
+
+    /* Ensure children stay centered/responsive */
+    .page-transition-wrapper>* {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .card {
+    background: white;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all .3s;
+    position: relative;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  /* BUTTONS & ACTIONS */
+  .btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: .2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary {
+    background: #0A96D4;
+    color: white;
+  }
+
+  .btn-success {
+    background: #10b981;
+    color: white;
+  }
+
+  .btn-danger {
+    background: #ef4444;
+    color: white;
+  }
+
+  .btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+  }
+
+  /* BADGES & STATUS */
+  .badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* VISIBILITY UTILITIES */
+  @media (min-width: 769px) {
+    .mobile-only {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .desktop-only {
+      display: none !important;
+    }
+  }
+
+  /* SPACING UTILITIES */
+  .mt-4 {
+    margin-top: 1rem;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .p-6 {
+    padding: 1.5rem;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  /* UTILITY CLASSES FOR ICON SIZES */
+  .w-4 {
+    width: 1rem;
+  }
+
+  .h-4 {
+    height: 1rem;
+  }
+
+  .w-5 {
+    width: 1.25rem;
+  }
+
+  .h-5 {
+    height: 1.25rem;
+  }
+
+  .w-6 {
+    width: 1.5rem;
+  }
+
+  .h-6 {
+    height: 1.5rem;
+  }
+
+  .w-8 {
+    width: 2rem;
+  }
+
+  .h-8 {
+    height: 2rem;
+  }
+
+  .w-10 {
+    width: 2.5rem;
+  }
+
+  .h-10 {
+    height: 2.5rem;
+  }
+
+  .w-12 {
+    width: 3rem;
+  }
+
+  .h-12 {
+    height: 3rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   SYSTEM ADMIN PANEL ANIMATIONS
+   ═══════════════════════════════════════════════ */
+
+/* ── Keyframes ── */
+@keyframes sa-fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sa-cardIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sa-rowIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes sa-modalBackdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes sa-modalCardIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ── ANIMATION 2: Page transitions ── */
+.sa-content > * {
+  animation: sa-fadeIn 0.3s ease both;
+}
+
+/* ── ANIMATION 3: KPI card stagger ── */
+.sa-kpi-grid > * {
+  animation: sa-cardIn 0.4s ease both;
+}
+.sa-kpi-grid > *:nth-child(1) { animation-delay: 0ms; }
+.sa-kpi-grid > *:nth-child(2) { animation-delay: 50ms; }
+.sa-kpi-grid > *:nth-child(3) { animation-delay: 100ms; }
+.sa-kpi-grid > *:nth-child(4) { animation-delay: 150ms; }
+.sa-kpi-grid > *:nth-child(5) { animation-delay: 200ms; }
+.sa-kpi-grid > *:nth-child(6) { animation-delay: 250ms; }
+.sa-kpi-grid > *:nth-child(7) { animation-delay: 300ms; }
+.sa-kpi-grid > *:nth-child(8) { animation-delay: 350ms; }
+.sa-kpi-grid > *:nth-child(9) { animation-delay: 400ms; }
+
+/* Stats strip cards (users page) */
+.sa-stats-grid > * {
+  animation: sa-cardIn 0.4s ease both;
+}
+.sa-stats-grid > *:nth-child(1) { animation-delay: 0ms; }
+.sa-stats-grid > *:nth-child(2) { animation-delay: 50ms; }
+.sa-stats-grid > *:nth-child(3) { animation-delay: 100ms; }
+.sa-stats-grid > *:nth-child(4) { animation-delay: 150ms; }
+.sa-stats-grid > *:nth-child(5) { animation-delay: 200ms; }
+
+/* Chart cards stagger */
+.sa-charts-grid > * {
+  animation: sa-cardIn 0.4s ease both;
+}
+.sa-charts-grid > *:nth-child(1) { animation-delay: 100ms; }
+.sa-charts-grid > *:nth-child(2) { animation-delay: 200ms; }
+
+/* ── KPI card hover ── */
+.sa-kpi-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── Stat card hover (users page) ── */
+.sa-stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── ANIMATION 4: Button hover ── */
+.sa-layout button,
+.sa-layout a[role="button"] {
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.sa-layout button:hover {
+  transform: scale(1.02);
+}
+.sa-layout button:active {
+  transform: scale(0.98);
+}
+
+/* ── ANIMATION 5: Modal open ── */
+.sa-modal-backdrop {
+  animation: sa-modalBackdropIn 0.2s ease both;
+}
+.sa-modal-card {
+  animation: sa-modalCardIn 0.25s ease both;
+}
+
+/* ── ANIMATION 6: Table row stagger ── */
+.sa-layout table tbody tr {
+  animation: sa-rowIn 0.3s ease both;
+}
+.sa-layout table tbody tr:nth-child(1) { animation-delay: 0ms; }
+.sa-layout table tbody tr:nth-child(2) { animation-delay: 30ms; }
+.sa-layout table tbody tr:nth-child(3) { animation-delay: 60ms; }
+.sa-layout table tbody tr:nth-child(4) { animation-delay: 90ms; }
+.sa-layout table tbody tr:nth-child(5) { animation-delay: 120ms; }
+.sa-layout table tbody tr:nth-child(6) { animation-delay: 150ms; }
+.sa-layout table tbody tr:nth-child(7) { animation-delay: 180ms; }
+.sa-layout table tbody tr:nth-child(8) { animation-delay: 210ms; }
+.sa-layout table tbody tr:nth-child(9) { animation-delay: 240ms; }
+.sa-layout table tbody tr:nth-child(10) { animation-delay: 270ms; }
+.sa-layout table tbody tr:nth-child(n+11) { animation-delay: 300ms; }
+
+/* ── Accessibility: respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .sa-content > *,
+  .sa-kpi-grid > *,
+  .sa-stats-grid > *,
+  .sa-charts-grid > *,
+  .sa-modal-backdrop,
+  .sa-modal-card,
+  .sa-layout table tbody tr {
+    animation: none !important;
+  }
+  .sa-kpi-card:hover,
+  .sa-stat-card:hover {
+    transform: none !important;
+  }
+  .sa-layout button,
+  .sa-layout button:hover,
+  .sa-layout button:active {
+    transform: none !important;
+    transition: none !important;
+  }
+}

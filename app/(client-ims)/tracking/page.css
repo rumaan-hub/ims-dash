@@ -1,0 +1,341 @@
+/* =============================================
+   Tracking Page — page.css
+   ============================================= */
+
+.tracking-page-container {
+  width: 100%;
+  box-sizing: border-box;
+
+  /* ── Header ────────────────────────────────────── */
+  .tracking-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .tracking-page-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.5rem;
+  }
+
+  .tracking-page-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  /* ── Orders List ──────────────────────────────── */
+  .tracking-orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .tracking-order-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .tracking-order-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  }
+
+  .tracking-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 1rem;
+  }
+
+  .tracking-id-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tracking-order-id {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #1e293b;
+  }
+
+  .tracking-order-date {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .tracking-status-badge {
+    padding: 6px 14px;
+    border-radius: 100px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tracking-card-body {
+    margin-bottom: 1.25rem;
+  }
+
+  .tracking-info-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+  }
+
+  .info-label {
+    color: #94a3b8;
+    font-weight: 600;
+  }
+
+  .info-value {
+    color: #475569;
+    font-weight: 700;
+  }
+
+  .tracking-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .tracking-view-details-btn {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .tracking-proposal-link {
+    color: #0A96D4;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  /* ── Modal ────────────────────────────────────── */
+  .tracking-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 1rem;
+  }
+
+  .tracking-modal-content {
+    background: white;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: trackingFadeIn 0.3s ease-out;
+  }
+
+  @keyframes trackingFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .tracking-modal-header {
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tracking-modal-header h3 {
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  .tracking-close-btn {
+    background: #f1f5f9;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    color: #64748b;
+    cursor: pointer;
+  }
+
+  .tracking-modal-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .tracking-order-summary {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+
+  .summary-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .summary-row span {
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .summary-row strong {
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .tracking-items-section h4,
+  .tracking-progress-section h4 {
+    margin: 0 0 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #94a3b8;
+    font-weight: 800;
+  }
+
+  .tracking-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tracking-item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 12px;
+  }
+
+  .item-name {
+    font-weight: 700;
+    color: #475569;
+    font-size: 0.85rem;
+  }
+
+  .item-qty {
+    font-weight: 800;
+    color: #0A96D4;
+    font-size: 0.85rem;
+  }
+
+  /* ── Stepper ──────────────────────────────────── */
+  .tracking-progress-stepper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+  }
+
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+  }
+
+  .step-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    z-index: 2;
+    margin-bottom: 12px;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1px #e2e8f0;
+  }
+
+  .progress-step.active .step-circle {
+    box-shadow: 0 0 0 4px rgba(10, 150, 212, 0.2);
+  }
+
+  .step-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #94a3b8;
+  }
+
+  .progress-step.active .step-label {
+    color: #1e293b;
+  }
+
+  .step-connector {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #f1f5f9;
+    z-index: 1;
+  }
+
+  .progress-step.active .step-connector {
+    background: #0A96D4;
+  }
+
+  .tracking-modal-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #f1f5f9;
+    background: #f8fafc;
+  }
+
+  .tracking-download-pdf-btn {
+    width: 100%;
+    padding: 14px;
+    background: #0f172a;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}

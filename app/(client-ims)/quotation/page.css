@@ -1,0 +1,555 @@
+/* =============================================
+   Quotation Page — page.css
+   Theme tokens:
+     accent:  #0A96D4
+     text:    #1e293b
+     gray:    #64748b
+     light:   #f8fafc
+     danger:  #ef4444
+     success: #10b981
+   ============================================= */
+
+/* .quotation-page-container {
+  width: 100%;
+  box-sizing: border-box; */
+
+  /* ── Page header ───────────────────────────────── */
+  /* .quotation-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .quotation-header-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.5rem;
+  }
+
+  .quotation-header-sub {
+    color: #64748b;
+    font-size: 1rem;
+    margin: 0;
+  } */
+
+  /* ── KPI Cards ─────────────────────────────────── */
+  /* .quotation-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .quotation-kpi-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s;
+  }
+
+  .quotation-kpi-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .quotation-kpi-icon-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    border-bottom-left-radius: 20px;
+    background: #f8fafc;
+    border-left: 1px solid rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  }
+
+  .quotation-kpi-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  .quotation-kpi-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+  } */
+
+  /* ── Tabs ──────────────────────────────────────── */
+  /* .quotation-tabs-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .quotation-tabs-pill {
+    background: white;
+    padding: 6px;
+    border-radius: 100px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    gap: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  }
+
+  .quotation-tab-btn {
+    padding: 10px 32px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: transparent;
+    color: #64748b;
+  }
+
+  .quotation-tab-btn.active {
+    background: #0f172a;
+    color: white;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+  } */
+
+  /* ── Table Card ───────────────────────────────── */
+  /* .quotation-table-card {
+    background: white;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .quotation-responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .quotation-responsive-table th {
+    background: #f8fafc;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    font-weight: 700;
+    border-bottom: 1px solid #f1f5f9;
+    text-align: left;
+  }
+
+  .quotation-responsive-table td {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.95rem;
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+  }
+
+  .quotation-responsive-table tr:hover {
+    background: #f8fafc;
+  }
+
+  .quotation-product-cell {
+    font-weight: 700;
+  }
+
+  .quotation-budget-cell {
+    font-weight: 800;
+    color: #0A96D4;
+  } */
+
+  /* ── Badges ───────────────────────────────────── */
+  /* .quotation-type-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .type-new {
+    background: #f5f3ff;
+    color: #7c3aed;
+  }
+
+  .type-existing {
+    background: #eff6ff;
+    color: #2563eb;
+  }
+
+  .quotation-status-badge {
+    display: inline-flex;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .quotation-status-badge.pending {
+    background: #fffcf0;
+    color: #b45309;
+  }
+
+  .quotation-status-badge.approved {
+    background: #f0fdf4;
+    color: #15803d;
+  }
+
+  .quotation-status-badge.rejected {
+    background: #fef2f2;
+    color: #b91c1c;
+  } */
+
+  /* ── Modal Utility ────────────────────────────── */
+  /* .quotation-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 1rem;
+  }
+
+  .quotation-modal-content {
+    background: white;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 28px;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.2);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: quotationModalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes quotationModalPop {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .quotation-modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .quotation-modal-header h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  .quotation-close-btn {
+    background: #f1f5f9;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+  }
+
+  .quotation-close-btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+  }
+
+  .quotation-modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .quotation-modal-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #f1f5f9;
+    background: #f8fafc;
+  } */
+
+  /* ── Form Controls ────────────────────────────── */
+  /* .quotation-form-section {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .quotation-form-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .quotation-form-input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    box-sizing: border-box;
+  }
+
+  .quotation-form-input:focus {
+    border-color: #0A96D4;
+    box-shadow: 0 0 0 4px rgba(10, 150, 212, 0.1);
+  }
+
+  .quotation-category-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .quotation-category-btn {
+    padding: 1.25rem;
+    border-radius: 18px;
+    border: 2px solid #f1f5f9;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s;
+  }
+
+  .quotation-category-btn.active {
+    border-color: #0A96D4;
+    background: #f0f9ff;
+  }
+
+  .quotation-category-btn span {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  } */
+
+  /* ── Search Results ──────────────────────────── */
+  /* .quotation-search-results {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    margin-top: 8px;
+    z-index: 100;
+    max-height: 250px;
+    overflow-y: auto;
+  }
+
+  .quotation-result-item {
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .quotation-result-item:hover {
+    background: #f8fafc;
+  }
+
+  .quotation-result-info strong {
+    font-size: 14px;
+    display: block;
+  }
+
+  .quotation-result-info small {
+    color: #64748b;
+    font-size: 12px;
+  }
+
+  .quotation-result-select-btn {
+    background: #0A96D4;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 11px;
+  } */
+
+  /* ── Cart ────────────────────────────────────── */
+  /* .quotation-cart-section {
+    padding-top: 1rem;
+  }
+
+  .quotation-cart-header {
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .quotation-cart-title {
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #1e293b;
+  }
+
+  .quotation-cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .quotation-cart-item-info strong {
+    display: block;
+    font-size: 0.95rem;
+  }
+
+  .quotation-cart-item-info small {
+    color: #64748b;
+    font-size: 0.85rem;
+  }
+
+  .quotation-remove-item-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: #fef2f2;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  /* ── Buttons ──────────────────────────────────── */
+  /* .quotation-btn-primary {
+    background: #0A96D4;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 14px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+
+  .quotation-btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+
+  .quotation-btn-large {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    justify-content: center;
+  } */
+
+  /* ── Detail Rows (Modal View) ────────────────── */
+  /* .quotation-detail-section {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .quotation-detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .quotation-detail-row:last-child {
+    border-bottom: none;
+  }
+
+  .quotation-detail-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #94a3b8;
+    text-transform: uppercase;
+  }
+
+  .quotation-detail-value {
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  .quotation-proposal-item {
+    padding: 1rem;
+    border-radius: 16px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .quotation-proposal-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .quotation-proposal-amount {
+    color: #0A96D4;
+    font-weight: 800;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .quotation-page-container {
+    .quotation-header-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    .quotation-btn-primary {
+      justify-content: center;
+    }
+  }
+} */

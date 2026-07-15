@@ -1,0 +1,688 @@
+/* ============================================================
+   SIDEBAR.CSS
+   Extracted from Sidebar.tsx <style jsx global> block.
+   Loaded as a static stylesheet in <head> — applied BEFORE
+   JavaScript runs, eliminating Flash of Unstyled Content (FOUC).
+   DO NOT add dynamic/theme-specific overrides here.
+   ============================================================ */
+
+/* MOBILE HEADER */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #0f172a;
+    color: #fff;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    justify-content: space-between;
+}
+
+/* TOP HEADER */
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0A96D4;
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.notification-bell {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.notification-bell.loaded {
+    opacity: 1;
+}
+
+.bell-icon {
+    width: 24px;
+    height: 24px;
+    fill: #fbbf24;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    min-width: 320px;
+    margin-top: 8px;
+    display: none;
+    z-index: 1000;
+    max-height: 400px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.notification-dropdown.show {
+    display: flex;
+}
+
+.notification-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.mark-read-btn {
+    font-size: 12px;
+    color: #0A96D4;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.notification-list {
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.notification-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.notification-item:hover {
+    background-color: #f9fafb;
+}
+
+.notification-item.unread {
+    background-color: #f0f9ff;
+}
+
+.notification-text {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.notification-time {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.notification-footer {
+    padding: 8px 16px;
+    text-align: center;
+    border-top: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #0A96D4;
+    cursor: pointer;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #0A96D4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    min-width: 180px;
+    margin-top: 8px;
+    display: none;
+    z-index: 1000;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f3f4f6;
+}
+
+/* SIDEBAR */
+.sidebar-fixed {
+    position: fixed;
+    top: 60px;
+    /* Position below the header */
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    /* Adjust height to account for header */
+    background-color: #ffffff;
+    z-index: 998;
+    /* Below header */
+    transform: translateX(0);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    /* Add padding since we removed the title */
+}
+
+/* SPLIT VIEW MODE - Sidebar is part of the page layout */
+.sidebar-split-view {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background-color: #ffffff;
+    z-index: 0;
+    /* Lower z-index for split view */
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+/* COLLAPSED STATE FOR DESKTOP */
+.sidebar-collapsed {
+    width: 70px !important;
+}
+
+.sidebar-collapsed .nav-link-text {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    overflow: hidden;
+}
+
+.sidebar-collapsed .nav-link {
+    justify-content: center;
+    padding: 14px 10px;
+}
+
+/* HOVER EXPANSION */
+.sidebar-fixed:hover {
+    width: 280px;
+    z-index: 1000;
+    /* Higher z-index when hovering */
+}
+
+.sidebar-fixed:hover .nav-link-text {
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+}
+
+.sidebar-fixed:hover .nav-link {
+    justify-content: flex-start;
+    padding: 14px 20px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    color: #64748b;
+    text-decoration: none;
+    padding: 14px 20px;
+    margin-bottom: 6px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: #0A96D4;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #f1f5f9;
+    color: #0A96D4;
+}
+
+.nav-link:hover::before {
+    transform: translateX(0);
+}
+
+.nav-link.active {
+    background-color: #0A96D4;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.nav-link-icon {
+    min-width: 24px;
+    margin-right: 12px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sidebar-collapsed .nav-link-icon {
+    margin-right: 0;
+}
+
+.nav-link-text {
+    display: inline-block;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mobile-user-profile {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.mobile-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.mobile-user-details {
+    flex: 1;
+}
+
+.mobile-user-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.mobile-user-initials {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.mobile-user-dropdown {
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.mobile-dropdown-item {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.mobile-dropdown-item:hover {
+    background-color: #e5e7eb;
+}
+
+/* OVERLAY */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 997;
+    /* Below sidebar */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* HAMBURGER MENU ANIMATION */
+.hamburger {
+    width: 24px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #0A96D4;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 16px;
+}
+
+/* RESPONSIVE LOGIC */
+@media (max-width: 768px) {
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .top-header {
+        display: none;
+        /* Hide desktop header on mobile */
+    }
+
+    .sidebar-fixed {
+        top: 0;
+        /* Full height on mobile */
+        height: 100vh;
+        width: 280px;
+        transform: translateX(-100%);
+        z-index: 1002;
+        /* Above mobile header */
+    }
+
+    .sidebar-fixed.mobile-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-fixed:hover {
+        width: 280px;
+    }
+
+    .sidebar-collapsed {
+        width: 280px !important;
+    }
+
+    .sidebar-overlay {
+        z-index: 1001;
+        /* Below sidebar but above header */
+    }
+
+    .notification-dropdown {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1003;
+        /* Ensure it's above everything */
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .hamburger span {
+        background: #fff;
+    }
+}
+
+/* Hide mobile user profile on desktop */
+@media (min-width: 769px) {
+    .mobile-user-profile {
+        display: none;
+    }
+}
+  .notifications-modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                backdrop-filter: blur(4px);
+            }
+
+            .notifications-modal-container {
+                background: white;
+                width: 95%;
+                max-width: 600px;
+                max-height: 80vh;
+                border-radius: 24px;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .modal-header {
+                padding: 1.5rem 2rem;
+                border-bottom: 1px solid #f1f5f9;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .modal-title {
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: 800;
+                color: #1e293b;
+            }
+
+            .close-modal-btn {
+                background: #f1f5f9;
+                border: none;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: #64748b;
+                font-size: 1.25rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+                overflow-y: auto;
+                flex: 1;
+            }
+
+            .modal-notification-list {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .modal-notification-card {
+                padding: 16px;
+                border-radius: 16px;
+                background: #f8fafc;
+                display: flex;
+                gap: 16px;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+
+            .modal-notification-card.unread {
+                background: white;
+                border: 1px solid #0A96D4;
+            }
+
+            .modal-icon-wrapper {
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .modal-icon-appointment { background: #ecfdf5; }
+            .modal-icon-alert { background: #fff7ed; }
+            .modal-icon-payment { background: #fdf2f8; }
+            .modal-icon-meeting { background: #eff6ff; }
+            .modal-icon-general { background: #f1f5f9; }
+
+            .modal-notification-message {
+                font-size: 14px;
+                font-weight: 600;
+                margin: 0 0 4px 0;
+            }
+
+            .modal-notification-time {
+                font-size: 12px;
+                color: #94a3b8;
+            }
+
+            .modal-footer {
+                padding: 1rem 2rem;
+                border-top: 1px solid #f1f5f9;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .mark-all-btn-modal {
+                padding: 12px 24px;
+                background: #0A96D4;
+                border: none;
+                border-radius: 12px;
+                color: white;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+
+            .mark-all-btn-modal:active {
+                transform: scale(0.95);
+            }
+
+            @media (max-width: 768px) {
+                .notifications-modal-container {
+                    width: 100%;
+                    height: 100%;
+                    max-height: 100vh;
+                    border-radius: 0;
+                }
+                .modal-header {
+                    padding: 1.25rem;
+                }
+                .modal-title {
+                    font-size: 1.25rem;
+                }
+                .modal-body {
+                    padding: 1rem;
+                }
+                .modal-footer {
+                    padding: 1rem;
+                    flex-direction: column-reverse;
+                    gap: 10px;
+                }
+                .mark-all-btn-modal {
+                    width: 100%;
+                    text-align: center;
+                    padding: 14px;
+                }
+            }
